@@ -1,0 +1,31 @@
+{
+  "account_id": "711ab96baee8597bf61ed973363715d6",
+  "name": "archivedotorg-mcp-unofficial",
+  "metadata": {
+    "main_module": "worker.js",
+    "compatibility_date": "2026-11-05",
+    "compatibility_flags": ["nodejs_compat"],
+    "observability": {
+      "enabled": true,
+      "head_sampling_rate": 0.1,
+      "logs": { "enabled": true, "invocation_logs": true },
+      "traces": { "enabled": true, "head_sampling_rate": 0.1 },
+      "redact_query_string": true
+    },
+    "bindings": [
+      {
+        "name": "RATE_LIMITER",
+        "type": "ratelimit",
+        "namespace_id": "10471101",
+        "simple": { "limit": 60, "period": 60 }
+      },
+      {
+        "name": "SAVE_LIMITER",
+        "type": "ratelimit",
+        "namespace_id": "10471102",
+        "simple": { "limit": 3, "period": 60 }
+      }
+    ],
+    "keep_bindings": ["secret_text"]
+  }
+}
